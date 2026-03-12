@@ -1,0 +1,841 @@
+version: 2
+
+sources:
+  - name: kafka_nsi
+    description: "Kafka sources for NSI JSON tables"
+    tables:
+      - name: activity_area_source
+        description: "JSON source for table activity_area"
+        config:
+          type: streaming
+          connector_properties:
+            connector: 'kafka'
+            topic: 'sys__nsi__esud_rzdm__activity_area__data'
+            properties.bootstrap.servers: 'kafka:9092'
+            properties.security.protocol: 'SASL_PLAINTEXT'
+            properties.sasl.mechanism: 'PLAIN'
+            properties.sasl.jaas.config: 'org.apache.flink.kafka.shaded.org.apache.kafka.common.security.plain.PlainLoginModule required username="admin" password="Q1w2e3r+";'
+            scan.startup.mode: 'group-offsets'
+            properties.auto.offset.reset: 'earliest'
+            format: 'json'
+            json.ignore-parse-errors: 'true'
+            json.fail-on-missing-field: 'false'
+        columns:
+          - name: GUID
+            data_type: "VARCHAR(50)"
+            description: "Field GUID"
+          - name: UID
+            data_type: "VARCHAR(50)"
+            description: "Field UID"
+          - name: Name
+            data_type: STRING
+            description: "Field Name"
+          - name: Code
+            data_type: STRING
+            description: "Field Code"
+          - name: DeletionMark
+            data_type: TINYINT
+            description: "Field DeletionMark"
+          - name: PriznakIspolzovaniya
+            data_type: STRING
+            description: "Field PriznakIspolzovaniya"
+          - name: Version
+            data_type: "VARCHAR(10)"
+            description: "Field Version"
+          - name: VersionDate
+            data_type: "TIMESTAMP(3)"
+            description: "Field VersionDate"
+          - name: event_timestamp
+            data_type: "TIMESTAMP(3)"
+            description: "Field event_timestamp"
+      - name: cash_flow_article_source
+        description: "JSON source for table cash_flow_article"
+        config:
+          type: streaming
+          connector_properties:
+            connector: 'kafka'
+            topic: 'sys__nsi__esud_rzdm__cash_flow_article__data'
+            properties.bootstrap.servers: 'kafka:9092'
+            properties.security.protocol: 'SASL_PLAINTEXT'
+            properties.sasl.mechanism: 'PLAIN'
+            properties.sasl.jaas.config: 'org.apache.flink.kafka.shaded.org.apache.kafka.common.security.plain.PlainLoginModule required username="admin" password="Q1w2e3r+";'
+            scan.startup.mode: 'group-offsets'
+            properties.auto.offset.reset: 'earliest'
+            format: 'json'
+            json.ignore-parse-errors: 'true'
+            json.fail-on-missing-field: 'false'
+        columns:
+          - name: GUID
+            data_type: "VARCHAR(50)"
+            description: "Field GUID"
+          - name: UID
+            data_type: "VARCHAR(50)"
+            description: "Field UID"
+          - name: Name
+            data_type: STRING
+            description: "Field Name"
+          - name: Code
+            data_type: STRING
+            description: "Field Code"
+          - name: DeletionMark
+            data_type: TINYINT
+            description: "Field DeletionMark"
+          - name: VidDvizheniyaDenezhnykhSredstv
+            data_type: STRING
+            description: "Field VidDvizheniyaDenezhnykhSredstv"
+          - name: KodVidaOperatsiiNFO
+            data_type: STRING
+            description: "Field KodVidaOperatsiiNFO"
+          - name: PriznakIspolzovaniya
+            data_type: STRING
+            description: "Field PriznakIspolzovaniya"
+          - name: RZhD_Arkhiv
+            data_type: TINYINT
+            description: "Field RZhD_Arkhiv"
+          - name: RZhD_DataPerenosaVArkhiv
+            data_type: "TIMESTAMP(3)"
+            description: "Field RZhD_DataPerenosaVArkhiv"
+          - name: RZhD_ZapretRedaktirovaniya
+            data_type: TINYINT
+            description: "Field RZhD_ZapretRedaktirovaniya"
+          - name: RZhD_ZapretRedaktirovaniyaVGruppe
+            data_type: TINYINT
+            description: "Field RZhD_ZapretRedaktirovaniyaVGruppe"
+          - name: Version
+            data_type: "VARCHAR(10)"
+            description: "Field Version"
+          - name: VersionDate
+            data_type: "TIMESTAMP(3)"
+            description: "Field VersionDate"
+          - name: event_timestamp
+            data_type: "TIMESTAMP(3)"
+            description: "Field event_timestamp"
+      - name: employee_category_source
+        description: "JSON source for table employee_category"
+        config:
+          type: streaming
+          connector_properties:
+            connector: 'kafka'
+            topic: 'sys__nsi__esud_rzdm__employee_category__data'
+            properties.bootstrap.servers: 'kafka:9092'
+            properties.security.protocol: 'SASL_PLAINTEXT'
+            properties.sasl.mechanism: 'PLAIN'
+            properties.sasl.jaas.config: 'org.apache.flink.kafka.shaded.org.apache.kafka.common.security.plain.PlainLoginModule required username="admin" password="Q1w2e3r+";'
+            scan.startup.mode: 'group-offsets'
+            properties.auto.offset.reset: 'earliest'
+            format: 'json'
+            json.ignore-parse-errors: 'true'
+            json.fail-on-missing-field: 'false'
+        columns:
+          - name: GUID
+            data_type: "VARCHAR(50)"
+            description: "Field GUID"
+          - name: UID
+            data_type: "VARCHAR(50)"
+            description: "Field UID"
+          - name: Name
+            data_type: STRING
+            description: "Field Name"
+          - name: Code
+            data_type: STRING
+            description: "Field Code"
+          - name: DeletionMark
+            data_type: TINYINT
+            description: "Field DeletionMark"
+          - name: PoryadokSortirovki
+            data_type: "DECIMAL(9,0)"
+            description: "Field PoryadokSortirovki"
+          - name: PriznakIspolzovaniya
+            data_type: "DECIMAL(9,0)"
+            description: "Field PriznakIspolzovaniya"
+          - name: Version
+            data_type: "VARCHAR(10)"
+            description: "Field Version"
+          - name: VersionDate
+            data_type: "TIMESTAMP(3)"
+            description: "Field VersionDate"
+          - name: event_timestamp
+            data_type: "TIMESTAMP(3)"
+            description: "Field event_timestamp"
+      - name: fixed_asset_source
+        description: "JSON source for table fixed_asset"
+        config:
+          type: streaming
+          connector_properties:
+            connector: 'kafka'
+            topic: 'sys__nsi__esud_rzdm__fixed_asset__data'
+            properties.bootstrap.servers: 'kafka:9092'
+            properties.security.protocol: 'SASL_PLAINTEXT'
+            properties.sasl.mechanism: 'PLAIN'
+            properties.sasl.jaas.config: 'org.apache.flink.kafka.shaded.org.apache.kafka.common.security.plain.PlainLoginModule required username="admin" password="Q1w2e3r+";'
+            scan.startup.mode: 'group-offsets'
+            properties.auto.offset.reset: 'earliest'
+            format: 'json'
+            json.ignore-parse-errors: 'true'
+            json.fail-on-missing-field: 'false'
+        columns:
+          - name: GUID
+            data_type: "VARCHAR(50)"
+            description: "Field GUID"
+          - name: UID
+            data_type: "VARCHAR(50)"
+            description: "Field UID"
+          - name: Name
+            data_type: STRING
+            description: "Field Name"
+          - name: Code
+            data_type: STRING
+            description: "Field Code"
+          - name: DeletionMark
+            data_type: TINYINT
+            description: "Field DeletionMark"
+          - name: GruppaOS
+            data_type: STRING
+            description: "Field GruppaOS"
+          - name: GruppaUchetaOS
+            data_type: STRING
+            description: "Field GruppaUchetaOS"
+          - name: PolnoeNaimenovanie
+            data_type: STRING
+            description: "Field PolnoeNaimenovanie"
+          - name: Izgotovitel
+            data_type: STRING
+            description: "Field Izgotovitel"
+          - name: NomerPasporta
+            data_type: STRING
+            description: "Field NomerPasporta"
+          - name: ZavodskoyNomer
+            data_type: STRING
+            description: "Field ZavodskoyNomer"
+          - name: DataVypuska
+            data_type: "TIMESTAMP(3)"
+            description: "Field DataVypuska"
+          - name: KodPoOKOF
+            data_type: STRING
+            description: "Field KodPoOKOF"
+          - name: AmortizatsionnayaGruppa
+            data_type: STRING
+            description: "Field AmortizatsionnayaGruppa"
+          - name: NedvizhimoeImushchestvo
+            data_type: TINYINT
+            description: "Field NedvizhimoeImushchestvo"
+          - name: Kommentariy
+            data_type: "VARCHAR(1048576)"
+            description: "Field Kommentariy"
+          - name: MestoNakhozhdeniyaTMTs
+            data_type: STRING
+            description: "Field MestoNakhozhdeniyaTMTs"
+          - name: TipOS
+            data_type: STRING
+            description: "Field TipOS"
+          - name: EdinitsaUcheta
+            data_type: STRING
+            description: "Field EdinitsaUcheta"
+          - name: Version
+            data_type: "VARCHAR(10)"
+            description: "Field Version"
+          - name: VersionDate
+            data_type: "TIMESTAMP(3)"
+            description: "Field VersionDate"
+          - name: event_timestamp
+            data_type: "TIMESTAMP(3)"
+            description: "Field event_timestamp"
+      - name: intangible_asset_source
+        description: "JSON source for table intangible_asset"
+        config:
+          type: streaming
+          connector_properties:
+            connector: 'kafka'
+            topic: 'sys__nsi__esud_rzdm__intangible_asset__data'
+            properties.bootstrap.servers: 'kafka:9092'
+            properties.security.protocol: 'SASL_PLAINTEXT'
+            properties.sasl.mechanism: 'PLAIN'
+            properties.sasl.jaas.config: 'org.apache.flink.kafka.shaded.org.apache.kafka.common.security.plain.PlainLoginModule required username="admin" password="Q1w2e3r+";'
+            scan.startup.mode: 'group-offsets'
+            properties.auto.offset.reset: 'earliest'
+            format: 'json'
+            json.ignore-parse-errors: 'true'
+            json.fail-on-missing-field: 'false'
+        columns:
+          - name: GUID
+            data_type: "VARCHAR(50)"
+            description: "Field GUID"
+          - name: UID
+            data_type: "VARCHAR(50)"
+            description: "Field UID"
+          - name: Name
+            data_type: STRING
+            description: "Field Name"
+          - name: Code
+            data_type: STRING
+            description: "Field Code"
+          - name: DeletionMark
+            data_type: TINYINT
+            description: "Field DeletionMark"
+          - name: AmortizatsionnayaGruppa
+            data_type: STRING
+            description: "Field AmortizatsionnayaGruppa"
+          - name: VidNematerialnogoAktiva
+            data_type: STRING
+            description: "Field VidNematerialnogoAktiva"
+          - name: VidObektaUcheta
+            data_type: STRING
+            description: "Field VidObektaUcheta"
+          - name: KodOKVED2
+            data_type: STRING
+            description: "Field KodOKVED2"
+          - name: KodElementaSpravochnika_ASB
+            data_type: STRING
+            description: "Field KodElementaSpravochnika_ASB"
+          - name: NaimenovaniePolnoe
+            data_type: "VARCHAR(1048576)"
+            description: "Field NaimenovaniePolnoe"
+          - name: RZhD_Otvetstvennyy
+            data_type: STRING
+            description: "Field RZhD_Otvetstvennyy"
+          - name: RZhD_PostupiloPriReorganizatsii
+            data_type: TINYINT
+            description: "Field RZhD_PostupiloPriReorganizatsii"
+          - name: RZhD_SposobPostupleniya
+            data_type: STRING
+            description: "Field RZhD_SposobPostupleniya"
+          - name: RZhD_SrokPoleznogoIspolzovaniyaBU
+            data_type: "DECIMAL(4,0)"
+            description: "Field RZhD_SrokPoleznogoIspolzovaniyaBU"
+          - name: PravoSobstvennosti
+            data_type: "VARCHAR(1048576)"
+            description: "Field PravoSobstvennosti"
+          - name: ProchieSvedeniya
+            data_type: "VARCHAR(1048576)"
+            description: "Field ProchieSvedeniya"
+          - name: GruppaNMA
+            data_type: STRING
+            description: "Field GruppaNMA"
+          - name: KodOKOF
+            data_type: STRING
+            description: "Field KodOKOF"
+          - name: KlassVNA
+            data_type: STRING
+            description: "Field KlassVNA"
+          - name: NaznachenieNMA
+            data_type: STRING
+            description: "Field NaznachenieNMA"
+          - name: VidNMAPoPBU14
+            data_type: STRING
+            description: "Field VidNMAPoPBU14"
+          - name: DogovorStrakhovaniya
+            data_type: STRING
+            description: "Field DogovorStrakhovaniya"
+          - name: Version
+            data_type: "VARCHAR(10)"
+            description: "Field Version"
+          - name: VersionDate
+            data_type: "TIMESTAMP(3)"
+            description: "Field VersionDate"
+          - name: event_timestamp
+            data_type: "TIMESTAMP(3)"
+            description: "Field event_timestamp"
+      - name: organization_source
+        description: "JSON source for table organization"
+        config:
+          type: streaming
+          connector_properties:
+            connector: 'kafka'
+            topic: 'sys__nsi__esud_rzdm__organization__data'
+            properties.bootstrap.servers: 'kafka:9092'
+            properties.security.protocol: 'SASL_PLAINTEXT'
+            properties.sasl.mechanism: 'PLAIN'
+            properties.sasl.jaas.config: 'org.apache.flink.kafka.shaded.org.apache.kafka.common.security.plain.PlainLoginModule required username="admin" password="Q1w2e3r+";'
+            scan.startup.mode: 'group-offsets'
+            properties.auto.offset.reset: 'earliest'
+            format: 'json'
+            json.ignore-parse-errors: 'true'
+            json.fail-on-missing-field: 'false'
+        columns:
+          - name: GUID
+            data_type: "VARCHAR(50)"
+            description: "Field GUID"
+          - name: INN
+            data_type: STRING
+            description: "Field INN"
+          - name: KPP
+            data_type: STRING
+            description: "Field KPP"
+          - name: UID
+            data_type: "VARCHAR(50)"
+            description: "Field UID"
+          - name: Name
+            data_type: STRING
+            description: "Field Name"
+          - name: Code
+            data_type: STRING
+            description: "Field Code"
+          - name: DeletionMark
+            data_type: TINYINT
+            description: "Field DeletionMark"
+          - name: IndividualnyyPredprinimatel
+            data_type: STRING
+            description: "Field IndividualnyyPredprinimatel"
+          - name: rc_Audit
+            data_type: "ROW<`Тип1С` STRING, `Значение` STRING>"
+            description: "Field rc_Audit"
+          - name: rc_Auditor
+            data_type: STRING
+            description: "Field rc_Auditor"
+          - name: rc_VidInostrannoyStruktury
+            data_type: "ROW<`Тип1С` STRING, `Значение` STRING>"
+            description: "Field rc_VidInostrannoyStruktury"
+          - name: rc_VidOrganizatsiiPoUmolchaniyu
+            data_type: STRING
+            description: "Field rc_VidOrganizatsiiPoUmolchaniyu"
+          - name: rc_VidOtkloneniyaKontroliruemogoZnacheniya
+            data_type: "ROW<`Тип1С` STRING, `Значение` STRING>"
+            description: "Field rc_VidOtkloneniyaKontroliruemogoZnacheniya"
+          - name: rc_GlavnyyBukhgalterFIO
+            data_type: STRING
+            description: "Field rc_GlavnyyBukhgalterFIO"
+          - name: rc_GorodStranaMezhdunarodnyy
+            data_type: STRING
+            description: "Field rc_GorodStranaMezhdunarodnyy"
+          - name: rc_GruppaKontragenta
+            data_type: STRING
+            description: "Field rc_GruppaKontragenta"
+          - name: rc_DataPrekrashcheniyaDeyatelnosti
+            data_type: "TIMESTAMP(3)"
+            description: "Field rc_DataPrekrashcheniyaDeyatelnosti"
+          - name: rc_Divizion
+            data_type: STRING
+            description: "Field rc_Divizion"
+          - name: rc_ZakupkaPoFZ223
+            data_type: TINYINT
+            description: "Field rc_ZakupkaPoFZ223"
+          - name: rc_InostrannayaStrukturaBezObrazovaniyaYurLitsa
+            data_type: TINYINT
+            description: "Field rc_InostrannayaStrukturaBezObrazovaniyaYurLitsa"
+          - name: rc_InostrannyyNalogovyyRezident
+            data_type: TINYINT
+            description: "Field rc_InostrannyyNalogovyyRezident"
+          - name: rc_IPImya
+            data_type: STRING
+            description: "Field rc_IPImya"
+          - name: rc_IPOtchestvo
+            data_type: STRING
+            description: "Field rc_IPOtchestvo"
+          - name: rc_IPFamiliya
+            data_type: STRING
+            description: "Field rc_IPFamiliya"
+          - name: rc_IspolzovatStrokuPlanaZakupok
+            data_type: TINYINT
+            description: "Field rc_IspolzovatStrokuPlanaZakupok"
+          - name: rc_KodInykhVidovDeyatelnostiNFO
+            data_type: STRING
+            description: "Field rc_KodInykhVidovDeyatelnostiNFO"
+          - name: rc_KodNalogoplatelshchikaInostrannyy
+            data_type: STRING
+            description: "Field rc_KodNalogoplatelshchikaInostrannyy"
+          - name: rc_KodOsnovnogoVidaDeyatelnostiNFO
+            data_type: STRING
+            description: "Field rc_KodOsnovnogoVidaDeyatelnostiNFO"
+          - name: rc_Makroregion
+            data_type: STRING
+            description: "Field rc_Makroregion"
+          - name: rc_NaimenovanieBE
+            data_type: STRING
+            description: "Field rc_NaimenovanieBE"
+          - name: rc_NaimenovanieInykhVidovDeyatelnostiNFO
+            data_type: STRING
+            description: "Field rc_NaimenovanieInykhVidovDeyatelnostiNFO"
+          - name: rc_NaimenovanieOrganizatsiiNaAngliyskomYazyke
+            data_type: STRING
+            description: "Field rc_NaimenovanieOrganizatsiiNaAngliyskomYazyke"
+          - name: rc_NaimenovanieOsnovnogoVidaDeyatelnostiNFO
+            data_type: STRING
+            description: "Field rc_NaimenovanieOsnovnogoVidaDeyatelnostiNFO"
+          - name: rc_NaimenovanieRegistriruyushchegoOrgana
+            data_type: STRING
+            description: "Field rc_NaimenovanieRegistriruyushchegoOrgana"
+          - name: rc_NekreditnayaFinansovayaOrganizatsiya
+            data_type: TINYINT
+            description: "Field rc_NekreditnayaFinansovayaOrganizatsiya"
+          - name: rc_OrganizatsiyaDeystvuyushchaya
+            data_type: TINYINT
+            description: "Field rc_OrganizatsiyaDeystvuyushchaya"
+          - name: rc_OsnovaniePrekrashcheniyaDeyatelnosti
+            data_type: STRING
+            description: "Field rc_OsnovaniePrekrashcheniyaDeyatelnosti"
+          - name: rc_OsnovnoyBankovskiySchet
+            data_type: STRING
+            description: "Field rc_OsnovnoyBankovskiySchet"
+          - name: rc_PoligonZhD
+            data_type: STRING
+            description: "Field rc_PoligonZhD"
+          - name: rc_RegionRossii
+            data_type: STRING
+            description: "Field rc_RegionRossii"
+          - name: rc_RegistriruyushchiyOrgan
+            data_type: STRING
+            description: "Field rc_RegistriruyushchiyOrgan"
+          - name: rc_RukovoditelOrganizatsiiDolzhnost
+            data_type: STRING
+            description: "Field rc_RukovoditelOrganizatsiiDolzhnost"
+          - name: rc_RukovoditelOrganizatsiiFIO
+            data_type: STRING
+            description: "Field rc_RukovoditelOrganizatsiiFIO"
+          - name: rc_SvedeniyaOLitsenzii
+            data_type: STRING
+            description: "Field rc_SvedeniyaOLitsenzii"
+          - name: rc_TarifnayaZona
+            data_type: STRING
+            description: "Field rc_TarifnayaZona"
+          - name: rc_TipElementa
+            data_type: "ROW<`Тип1С` STRING, `Значение` STRING>"
+            description: "Field rc_TipElementa"
+          - name: rc_FormatTsFO
+            data_type: STRING
+            description: "Field rc_FormatTsFO"
+          - name: rc_FRMO_OrgID
+            data_type: STRING
+            description: "Field rc_FRMO_OrgID"
+          - name: rc_EtoBank
+            data_type: TINYINT
+            description: "Field rc_EtoBank"
+          - name: rc_EtoIndividualnyyPredprinimatel
+            data_type: TINYINT
+            description: "Field rc_EtoIndividualnyyPredprinimatel"
+          - name: rc_EtoMezhdunarodnyyKholding
+            data_type: TINYINT
+            description: "Field rc_EtoMezhdunarodnyyKholding"
+          - name: rc_EtoNKO
+            data_type: TINYINT
+            description: "Field rc_EtoNKO"
+          - name: rc_EtoSamozanyatyy
+            data_type: TINYINT
+            description: "Field rc_EtoSamozanyatyy"
+          - name: rc_EtoStrakhovayaKompaniya
+            data_type: TINYINT
+            description: "Field rc_EtoStrakhovayaKompaniya"
+          - name: rc_AdresMezhdunarodnyy
+            data_type: STRING
+            description: "Field rc_AdresMezhdunarodnyy"
+          - name: rc_KodOKVED2
+            data_type: STRING
+            description: "Field rc_KodOKVED2"
+          - name: VidObmenaSKontroliruyushchimiOrganami
+            data_type: "ROW<`Тип1С` STRING, `Значение` STRING>"
+            description: "Field VidObmenaSKontroliruyushchimiOrganami"
+          - name: Voenkomat
+            data_type: STRING
+            description: "Field Voenkomat"
+          - name: ValyutaReglamentirovannogoUcheta
+            data_type: STRING
+            description: "Field ValyutaReglamentirovannogoUcheta"
+          - name: GrafikRaboty
+            data_type: STRING
+            description: "Field GrafikRaboty"
+          - name: DataRegistratsii
+            data_type: "TIMESTAMP(3)"
+            description: "Field DataRegistratsii"
+          - name: DopolnitelnyyKodFSS
+            data_type: STRING
+            description: "Field DopolnitelnyyKodFSS"
+          - name: DopuskayutsyaVzaimoraschetyCherezGolovnuyuOrganiza
+            data_type: TINYINT
+            description: "Field DopuskayutsyaVzaimoraschetyCherezGolovnuyuOrganiza"
+          - name: EstObosoblennyePodrazdeleniya
+            data_type: TINYINT
+            description: "Field EstObosoblennyePodrazdeleniya"
+          - name: ZaregistrirovanVOEZ
+            data_type: TINYINT
+            description: "Field ZaregistrirovanVOEZ"
+          - name: IPKodPodchinennostiFSS
+            data_type: STRING
+            description: "Field IPKodPodchinennostiFSS"
+          - name: IPRegistratsionnyyNomerPFR
+            data_type: STRING
+            description: "Field IPRegistratsionnyyNomerPFR"
+          - name: IPRegistratsionnyyNomerTFOMS
+            data_type: STRING
+            description: "Field IPRegistratsionnyyNomerTFOMS"
+          - name: IPRegistratsionnyyNomerFSS
+            data_type: STRING
+            description: "Field IPRegistratsionnyyNomerFSS"
+          - name: KodVStraneRegistratsii
+            data_type: STRING
+            description: "Field KodVStraneRegistratsii"
+          - name: KodNalogovogoOrgana
+            data_type: STRING
+            description: "Field KodNalogovogoOrgana"
+          - name: KodNalogovogoOrganaPoluchatelya
+            data_type: STRING
+            description: "Field KodNalogovogoOrganaPoluchatelya"
+          - name: KodOKVED
+            data_type: STRING
+            description: "Field KodOKVED"
+          - name: KodOKVED2
+            data_type: STRING
+            description: "Field KodOKVED2"
+          - name: KodOKOPF
+            data_type: STRING
+            description: "Field KodOKOPF"
+          - name: KodOKFS
+            data_type: STRING
+            description: "Field KodOKFS"
+          - name: KodOrganaPFR
+            data_type: STRING
+            description: "Field KodOrganaPFR"
+          - name: KodOrganaFSGS
+            data_type: STRING
+            description: "Field KodOrganaFSGS"
+          - name: KodPodchinennostiFSS
+            data_type: STRING
+            description: "Field KodPodchinennostiFSS"
+          - name: KodPoOKATO
+            data_type: STRING
+            description: "Field KodPoOKATO"
+          - name: KodPoOKPO
+            data_type: STRING
+            description: "Field KodPoOKPO"
+          - name: Kontragent
+            data_type: STRING
+            description: "Field Kontragent"
+          - name: NaimenovanieSokrashchennoe
+            data_type: STRING
+            description: "Field NaimenovanieSokrashchennoe"
+          - name: KrupneyshiyNalogoplatelshchik
+            data_type: TINYINT
+            description: "Field KrupneyshiyNalogoplatelshchik"
+          - name: NaborSvoystv
+            data_type: STRING
+            description: "Field NaborSvoystv"
+          - name: NaimenovanieInostrOrganizatsii
+            data_type: STRING
+            description: "Field NaimenovanieInostrOrganizatsii"
+          - name: OGRN
+            data_type: STRING
+            description: "Field OGRN"
+          - name: NaimenovanieNalogovogoOrgana
+            data_type: STRING
+            description: "Field NaimenovanieNalogovogoOrgana"
+          - name: Prefiks
+            data_type: STRING
+            description: "Field Prefiks"
+          - name: NaimenovanieTerritorialnogoOrganaPFR
+            data_type: "VARCHAR(1048576)"
+            description: "Field NaimenovanieTerritorialnogoOrganaPFR"
+          - name: NaimenovanieTerritorialnogoOrganaFSS
+            data_type: STRING
+            description: "Field NaimenovanieTerritorialnogoOrganaFSS"
+          - name: NeZapolnyatPodrazdeleniyaVMeropriyatiyakhTrudovoyD
+            data_type: TINYINT
+            description: "Field NeZapolnyatPodrazdeleniyaVMeropriyatiyakhTrudovoyD"
+          - name: ObmenKatalogOtpravkiDannykhOtchetnosti
+            data_type: STRING
+            description: "Field ObmenKatalogOtpravkiDannykhOtchetnosti"
+          - name: ObmenKatalogProgrammyElektronnoyPochty
+            data_type: STRING
+            description: "Field ObmenKatalogProgrammyElektronnoyPochty"
+          - name: ObmenKodAbonenta
+            data_type: STRING
+            description: "Field ObmenKodAbonenta"
+          - name: ObosoblennoePodrazdelenie
+            data_type: TINYINT
+            description: "Field ObosoblennoePodrazdelenie"
+          - name: GolovnayaOrganizatsiya
+            data_type: STRING
+            description: "Field GolovnayaOrganizatsiya"
+          - name: OtdelenieInostrannoyOrganizatsii
+            data_type: TINYINT
+            description: "Field OtdelenieInostrannoyOrganizatsii"
+          - name: PolnoeNaimenovanie
+            data_type: STRING
+            description: "Field PolnoeNaimenovanie"
+          - name: NaimenovanieMezhdunarodnoe
+            data_type: STRING
+            description: "Field NaimenovanieMezhdunarodnoe"
+          - name: PrimenyatRayonnyyKoeffitsient
+            data_type: TINYINT
+            description: "Field PrimenyatRayonnyyKoeffitsient"
+          - name: PrimenyatSevernuyuNadbavku
+            data_type: TINYINT
+            description: "Field PrimenyatSevernuyuNadbavku"
+          - name: ProtsentSevernoyNadbavki
+            data_type: "DECIMAL(9,2)"
+            description: "Field ProtsentSevernoyNadbavki"
+          - name: RayonnyyKoeffitsient
+            data_type: "DECIMAL(9,2)"
+            description: "Field RayonnyyKoeffitsient"
+          - name: RayonnyyKoeffitsientRF
+            data_type: "DECIMAL(9,2)"
+            description: "Field RayonnyyKoeffitsientRF"
+          - name: RegistratsionnyyNomerPFR
+            data_type: STRING
+            description: "Field RegistratsionnyyNomerPFR"
+          - name: RegistratsionnyyNomerTFOMS
+            data_type: STRING
+            description: "Field RegistratsionnyyNomerTFOMS"
+          - name: RegistratsionnyyNomerFSS
+            data_type: STRING
+            description: "Field RegistratsionnyyNomerFSS"
+          - name: RegistratsiyaVNalogovomOrgane
+            data_type: STRING
+            description: "Field RegistratsiyaVNalogovomOrgane"
+          - name: SvidetelstvoDataVydachi
+            data_type: "TIMESTAMP(3)"
+            description: "Field SvidetelstvoDataVydachi"
+          - name: SvidetelstvoSeriyaNomer
+            data_type: STRING
+            description: "Field SvidetelstvoSeriyaNomer"
+          - name: StranaPostoyannogoMestonakhozhdeniya
+            data_type: STRING
+            description: "Field StranaPostoyannogoMestonakhozhdeniya"
+          - name: StranaRegistratsii
+            data_type: STRING
+            description: "Field StranaRegistratsii"
+          - name: StranaRegistratsiiInostrannoyOrganizatsii
+            data_type: STRING
+            description: "Field StranaRegistratsiiInostrannoyOrganizatsii"
+          - name: UchetnayaZapisObmena
+            data_type: STRING
+            description: "Field UchetnayaZapisObmena"
+          - name: FaylLogotip
+            data_type: STRING
+            description: "Field FaylLogotip"
+          - name: FaylFaksimilnayaPechat
+            data_type: STRING
+            description: "Field FaylFaksimilnayaPechat"
+          - name: TsifrovoyIndeksObosoblennogoPodrazdeleniya
+            data_type: "DECIMAL(9,2)"
+            description: "Field TsifrovoyIndeksObosoblennogoPodrazdeleniya"
+          - name: YuridicheskoeFizicheskoeLitso
+            data_type: "ROW<`Тип1С` STRING, `Значение` STRING>"
+            description: "Field YuridicheskoeFizicheskoeLitso"
+          - name: YurFizLitso
+            data_type: "ROW<`Тип1С` STRING, `Значение` STRING>"
+            description: "Field YurFizLitso"
+          - name: rc_NaimenovanieOKVED2
+            data_type: STRING
+            description: "Field rc_NaimenovanieOKVED2"
+          - name: rc_KodOKTMO
+            data_type: STRING
+            description: "Field rc_KodOKTMO"
+          - name: rc_NaimenovanieOKVED
+            data_type: STRING
+            description: "Field rc_NaimenovanieOKVED"
+          - name: rc_NaimenovanieOKOPF
+            data_type: STRING
+            description: "Field rc_NaimenovanieOKOPF"
+          - name: rc_NaimenovanieOKFS
+            data_type: STRING
+            description: "Field rc_NaimenovanieOKFS"
+          - name: Version
+            data_type: "VARCHAR(10)"
+            description: "Field Version"
+          - name: VersionDate
+            data_type: "TIMESTAMP(3)"
+            description: "Field VersionDate"
+          - name: event_timestamp
+            data_type: "TIMESTAMP(3)"
+            description: "Field event_timestamp"
+      - name: purpose_fund_assignment_source
+        description: "JSON source for table purpose_fund_assignment"
+        config:
+          type: streaming
+          connector_properties:
+            connector: 'kafka'
+            topic: 'sys__nsi__esud_rzdm__purpose_fund_assignment__data'
+            properties.bootstrap.servers: 'kafka:9092'
+            properties.security.protocol: 'SASL_PLAINTEXT'
+            properties.sasl.mechanism: 'PLAIN'
+            properties.sasl.jaas.config: 'org.apache.flink.kafka.shaded.org.apache.kafka.common.security.plain.PlainLoginModule required username="admin" password="Q1w2e3r+";'
+            scan.startup.mode: 'group-offsets'
+            properties.auto.offset.reset: 'earliest'
+            format: 'json'
+            json.ignore-parse-errors: 'true'
+            json.fail-on-missing-field: 'false'
+        columns:
+          - name: GUID
+            data_type: "VARCHAR(50)"
+            description: "Field GUID"
+          - name: UID
+            data_type: "VARCHAR(50)"
+            description: "Field UID"
+          - name: Name
+            data_type: STRING
+            description: "Field Name"
+          - name: Code
+            data_type: STRING
+            description: "Field Code"
+          - name: DeletionMark
+            data_type: TINYINT
+            description: "Field DeletionMark"
+          - name: PriznakIspolzovaniya
+            data_type: STRING
+            description: "Field PriznakIspolzovaniya"
+          - name: RZhD_Arkhiv
+            data_type: TINYINT
+            description: "Field RZhD_Arkhiv"
+          - name: RZhD_DataPerenosaVArkhiv
+            data_type: "TIMESTAMP(3)"
+            description: "Field RZhD_DataPerenosaVArkhiv"
+          - name: RZhD_Dogovor
+            data_type: STRING
+            description: "Field RZhD_Dogovor"
+          - name: RZHD_IF
+            data_type: STRING
+            description: "Field RZHD_IF"
+          - name: RZhD_ProchieRaskhodyPoKD
+            data_type: STRING
+            description: "Field RZhD_ProchieRaskhodyPoKD"
+          - name: Version
+            data_type: "VARCHAR(10)"
+            description: "Field Version"
+          - name: VersionDate
+            data_type: "TIMESTAMP(3)"
+            description: "Field VersionDate"
+          - name: event_timestamp
+            data_type: "TIMESTAMP(3)"
+            description: "Field event_timestamp"
+      - name: use_profit_direction_source
+        description: "JSON source for table use_profit_direction"
+        config:
+          type: streaming
+          connector_properties:
+            connector: 'kafka'
+            topic: 'sys__nsi__esud_rzdm__use_profit_direction__data'
+            properties.bootstrap.servers: 'kafka:9092'
+            properties.security.protocol: 'SASL_PLAINTEXT'
+            properties.sasl.mechanism: 'PLAIN'
+            properties.sasl.jaas.config: 'org.apache.flink.kafka.shaded.org.apache.kafka.common.security.plain.PlainLoginModule required username="admin" password="Q1w2e3r+";'
+            scan.startup.mode: 'group-offsets'
+            properties.auto.offset.reset: 'earliest'
+            format: 'json'
+            json.ignore-parse-errors: 'true'
+            json.fail-on-missing-field: 'false'
+        columns:
+          - name: GUID
+            data_type: "VARCHAR(50)"
+            description: "Field GUID"
+          - name: UID
+            data_type: "VARCHAR(50)"
+            description: "Field UID"
+          - name: Name
+            data_type: STRING
+            description: "Field Name"
+          - name: Code
+            data_type: STRING
+            description: "Field Code"
+          - name: DeletionMark
+            data_type: TINYINT
+            description: "Field DeletionMark"
+          - name: PriznakIspolzovaniya
+            data_type: "DECIMAL(9,0)"
+            description: "Field PriznakIspolzovaniya"
+          - name: Version
+            data_type: "VARCHAR(10)"
+            description: "Field Version"
+          - name: VersionDate
+            data_type: "TIMESTAMP(3)"
+            description: "Field VersionDate"
+          - name: event_timestamp
+            data_type: "TIMESTAMP(3)"
+            description: "Field event_timestamp"

@@ -1,0 +1,33 @@
+# Copy this file to .dbt_env and fill secrets:
+#   cp ./flink/scripts/.dbt_env.example ./flink/scripts/.dbt_env
+#
+# Then load env before dbt run:
+#   source ./flink/scripts/dbt_env.sh
+
+# ----------------------------
+# Kafka
+# ----------------------------
+KAFKA_BOOTSTRAP=kafka:9092
+KAFKA_SECURITY_PROTOCOL=SASL_PLAINTEXT
+KAFKA_SASL_MECHANISM=PLAIN
+KAFKA_USERNAME=admin
+KAFKA_PASSWORD=CCCCCCCCCCCCCCCCCCCCCCCCCC
+
+# ----------------------------
+# Iceberg catalog
+# ----------------------------
+ICEBERG_CATALOG_NAME=iceberg
+ICEBERG_CATALOG_IMPL=org.apache.iceberg.rest.RESTCatalog
+ICEBERG_URI=http://iceberg-rest:8181
+ICEBERG_WAREHOUSE=s3://iceberg/
+ICEBERG_IO_IMPL=org.apache.iceberg.aws.s3.S3FileIO
+ICEBERG_PARQUET_CODEC=zstd
+
+# ----------------------------
+# S3/MinIO
+# ----------------------------
+S3_ENDPOINT=http://minio-svc:9000
+S3_PATH_STYLE_ACCESS=true
+S3_ACCESS_KEY=minioadmin
+S3_SECRET_KEY=CCCCCCCCCCCCCCCCCCCCC
+S3_REGION=ru-central1

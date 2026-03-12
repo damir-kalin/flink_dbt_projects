@@ -1,0 +1,11 @@
+flink_profile:
+  target: dev
+  outputs:
+    dev:
+      type: flink
+      host: flink-sql-gateway
+      port: 8083
+      session_name: dbt_nsi_session
+      database: default_catalog
+      schema: rzdm
+      threads: 1
