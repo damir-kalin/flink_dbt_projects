@@ -72,7 +72,7 @@ models:
       - { name: GrafikRaboty, data_type: STRING, description: "Field grafikraboty" }
       - { name: DataRegistratsii, data_type: "TIMESTAMP(3)", description: "Field dataregistratsii" }
       - { name: DopolnitelnyyKodFSS, data_type: STRING, description: "Field dopolnitelnyykodfss" }
-      - { name: DopuskayutsyaVzaimoraschetyCherezGolovnuyuOrganiza, data_type: BOOLEAN, description: "Field dopuskayutsyavzaimoraschetycherezgolovnuyuorganiza" }
+      - { name: DopuskayutsyaVzaimoraschetyCherezGolovnuyuOrganizatsiyu, data_type: BOOLEAN, description: "Field dopuskayutsyavzaimoraschetycherezgolovnuyuorganizatsiyu" }
       - { name: EstObosoblennyePodrazdeleniya, data_type: BOOLEAN, description: "Field estobosoblennyepodrazdeleniya" }
       - { name: ZaregistrirovanVOEZ, data_type: BOOLEAN, description: "Field zaregistrirovanvoez" }
       - { name: IPKodPodchinennostiFSS, data_type: STRING, description: "Field ipkodpodchinennostifss" }
@@ -101,7 +101,7 @@ models:
       - { name: Prefiks, data_type: STRING, description: "Field prefiks" }
       - { name: NaimenovanieTerritorialnogoOrganaPFR, data_type: STRING, description: "Field naimenovanieterritorialnogoorganapfr" }
       - { name: NaimenovanieTerritorialnogoOrganaFSS, data_type: STRING, description: "Field naimenovanieterritorialnogoorganafss" }
-      - { name: NeZapolnyatPodrazdeleniyaVMeropriyatiyakhTrudovoyD, data_type: BOOLEAN, description: "Field nezapolnyatpodrazdeleniyavmeropriyatiyakhtrudovoyd" }
+      - { name: NeZapolnyatPodrazdeleniyaVMeropriyatiyakhTrudovoyDeyatelnosti, data_type: BOOLEAN, description: "Field nezapolnyatpodrazdeleniyavmeropriyatiyakhtrudovoydeyatelnosti" }
       - { name: ObmenKatalogOtpravkiDannykhOtchetnosti, data_type: STRING, description: "Field obmenkatalogotpravkidannykhotchetnosti" }
       - { name: ObmenKatalogProgrammyElektronnoyPochty, data_type: STRING, description: "Field obmenkatalogprogrammyelektronnoypochty" }
       - { name: ObmenKodAbonenta, data_type: STRING, description: "Field obmenkodabonenta" }

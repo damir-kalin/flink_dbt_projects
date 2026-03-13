@@ -7,7 +7,7 @@
 {% endmacro %}
 
 {% macro safe_timestamp3(field_name) %}
-  {{ return("CASE WHEN " ~ field_name ~ " IS NULL OR TRIM(CAST(" ~ field_name ~ " AS STRING)) IN ('', '0001-01-01T00:00:00') THEN NULL ELSE TRY_CAST(REPLACE(CAST(" ~ field_name ~ " AS STRING), 'T', ' ') AS TIMESTAMP(3)) END") }}
+  {{ return("CASE WHEN " ~ field_name ~ " IS NULL OR TRIM(CAST(" ~ field_name ~ " AS STRING)) = '' THEN NULL ELSE TRY_CAST(REPLACE(CAST(" ~ field_name ~ " AS STRING), 'T', ' ') AS TIMESTAMP(3)) END") }}
 {% endmacro %}
 
 {% macro empty_to_null(field_name) %}
