@@ -231,7 +231,6 @@ models:
       - { name: UdalitEtoMaket, data_type: BOOLEAN, description: "Field udalitetomaket" }
       - { name: YurFizLitso, data_type: STRING, description: "Field yurfizlitso" }
       - { name: OsnovnoyBankovskiySchet, data_type: STRING, description: "Field osnovnoybankovskiyschet" }
-      - { name: Version, data_type: BIGINT, description: "Field version" }
       - { name: VersionDate, data_type: "TIMESTAMP(3)", description: "Field versiondate" }
       - { name: load_dttm, data_type: "TIMESTAMP(3)", description: "Field load_dttm" }
       - { name: load_dttm_tz, data_type: "TIMESTAMP(3)", description: "Field load_dttm_tz" }

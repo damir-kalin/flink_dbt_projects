@@ -7,8 +7,8 @@
       "CREATE TABLE default_catalog.default_database.contractor_source (
         `Version` STRING,
         `DeletionMark` STRING,
-        `UID` VARCHAR(50),
-        `GUID` VARCHAR(50),
+        `UID` STRING,
+        `GUID` STRING,
         `Name` STRING,
         `Code` STRING,
         `Parent` STRING,
@@ -86,7 +86,6 @@
         `UdalitEtoMaket` STRING,
         `YurFizLitso` ROW<`Тип1С` STRING, `Значение` STRING>,
         `OsnovnoyBankovskiySchet` STRING,
-        `Version` VARCHAR(10),
         `VersionDate` STRING
       ) WITH (
         'connector' = 'kafka',
@@ -202,7 +201,6 @@ SELECT
     {{ bool_to_boolean('`UdalitEtoMaket`') }} AS `UdalitEtoMaket`,
     {{ empty_to_null(onec_value('`YurFizLitso`')) }} AS `YurFizLitso`,
     {{ empty_to_null('`OsnovnoyBankovskiySchet`') }} AS `OsnovnoyBankovskiySchet`,
-    TRY_CAST(`Version` AS BIGINT) AS `Version`,
     {{ safe_timestamp3('`VersionDate`') }} AS `VersionDate`,
     CAST(CURRENT_TIMESTAMP AS TIMESTAMP(3)) AS load_dttm,
     CAST(NULL AS TIMESTAMP(3)) AS load_dttm_tz,
