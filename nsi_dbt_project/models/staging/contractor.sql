@@ -5,7 +5,7 @@
     pre_hook=[
       "DROP TABLE IF EXISTS default_catalog.default_database.contractor_source",
       "CREATE TABLE default_catalog.default_database.contractor_source (
-        `ВерсияДанных` STRING,
+        `Version` STRING,
         `DeletionMark` STRING,
         `UID` VARCHAR(50),
         `GUID` VARCHAR(50),
@@ -124,7 +124,7 @@
 }}
 
 SELECT
-    {{ empty_to_null('`ВерсияДанных`') }} AS `ВерсияДанных`,
+    {{ empty_to_null('`Version`') }} AS `Version`,
     {{ bool_to_boolean('`DeletionMark`') }} AS `DeletionMark`,
     {{ empty_to_null('`UID`') }} AS `UID`,
     {{ empty_to_null('`GUID`') }} AS `GUID`,

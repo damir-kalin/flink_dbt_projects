@@ -153,7 +153,7 @@ models:
       statement_set_group: 'nsi_group'
       statement_set_leader: false
     columns:
-      - { name: "ВерсияДанных", data_type: STRING, description: "Field версияданных" }
+      - { name: "Version", data_type: STRING, description: "Field version" }
       - { name: DeletionMark, data_type: BOOLEAN, description: "Field deletionmark" }
       - { name: UID, data_type: STRING, description: "Field uid" }
       - { name: GUID, data_type: STRING, description: "Field guid" }
